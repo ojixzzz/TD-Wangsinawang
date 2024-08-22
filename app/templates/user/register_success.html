@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Terasdakwah - Pendaftaran</title>
+  <title>Wang Sinawang - Pendaftaran</title>
 
   <!-- Custom fonts for this template-->
   <link href="{{ url_for('static', filename='vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
@@ -32,17 +32,28 @@
         <h4 style="padding: 0.75rem 1.25rem; margin-bottom: 0px;">Pendaftaran Berhasil</h4>
       </div>
       <div class="card-body">
+		    <div class="coupon bg-white rounded mb-3 d-flex justify-content-between">
+          <div class="kiri p-3">
+              <div class="icon-container ">
+                  <div class="icon-container_box">
+                      <img src="data:image/png;base64,{{ data.qr_code }}" width="100" class="" />
+                  </div>
+              </div>
+          </div>
+          <div class="tengah py-3 d-flex w-100 justify-content-start">
+              <div>
+                  <span class="badge badge-success">Kupon Undian Umroh</span>
+                  <h3 class="lead">Nomor undian kamu</h3>
+                  <p class="mb-0" style="font-size: x-large;font-weight: bold;">{{ data.no_coupon }}</p>
+              </div>
+          </div>
+        </div>
         <p>
-            1. Simpan / Buka link ini <a href="https://app.terasdakwah.com/{{ data.uid }}">https://app.terasdakwah.com/{{ data.uid }}</a><br />
-            2. Scan QR di Terasdakwah
-        </p>
-        <p>
-            Sampai jumpa di Teras Dakwah ya, kami tunggu kamu di sini.<br />
-            Untuk info hubungi <a href="https://wa.link/p4l4uc">https://wa.link/p4l4uc</a>
+          Simpan/Screenshot nomor ini untuk undian. Tunjukkan nomor ini untuk verifikasi pemenang undian.
         </p>
         <br />
         <div class="text-center">
-            <p class="d-block small mt-3">© Terasdakwah 2024</p>
+            <p class="d-block small mt-3">© wangsinawang.official</p>
         </div>
       </div>
     </div>

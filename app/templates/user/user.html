@@ -6,8 +6,12 @@
         <div class="card mb-3">
           <div class="card-header">
             <i class="fas fa-table"></i> Data Jamaah
-            <a href="{{ url_for('user.index') }}?sedekah=true&export=true&per_page=5000" class="btn btn-primary" style="width: 128px; float: right;"> Eksport Sedekah</a>
-            <a href="{{ url_for('user.index') }}?export=true&per_page=5000" class="btn btn-primary" style="width: 128px; float: right;margin-right: 10px;"> Eksport Semua</a>
+            <form type="GET">
+              <button class="btn btn-primary" style="width: 128px; float: right;"> Cari</button>
+              <input name="no_coupon" class="form-control" type="text" placeholder="No Undian" style="max-width:200px; min-width: 128px; float: right;" value="{{ data.filtercoupon }}">
+            </form>
+            <br/><br/>
+            <a href="{{ url_for('user.index') }}?export=true&per_page=5000" class="btn btn-primary" style="width: 130px; float: right;margin-top: 10px;"> Download</a>
           </div>
 
           <div class="card-body">
@@ -15,6 +19,7 @@
               <table class="table table-bordered" width="100%" cellspacing="0">
                 <thead>
                   <tr>
+                    <th>No Kupon</th>
                     <th>Nama</th>
                     <th>No Hp</th>
                     <th>Tanggal daftar</th>
@@ -24,7 +29,8 @@
                   {% if data.list_user %}
                   {% for user in data.list_user %}
                       <tr>
-                          <td>{{ user.nama }}</td>
+                          <td>{{ user.no_coupon }}</td>
+                          <td>{{ user.name }}</td>
                           <td>{{ user.no_hp }}</td>
                           <td>{{ user.created }}</td>
                       </tr>

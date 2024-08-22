@@ -1,5 +1,6 @@
 from app import db
-from datetime import datetime, timedelta
+from datetime import datetime
+
 
 class User(db.Document):
     '''
@@ -11,33 +12,25 @@ class User(db.Document):
     100 = Blokir
     '''
     password = db.StringField()
-    tipe = db.IntField()
-    name    = db.StringField()
-    no_hp   = db.StringField()
-    tanggallahir = db.DateTimeField(default=datetime.strptime("1945-08-17", "%Y-%m-%d"))
+    tipe = db.IntField(default=1)
+    name = db.StringField()
     gender = db.StringField(default="")
-    provinsi     = db.ObjectIdField(default=None)
-    kabupaten    = db.ObjectIdField(default=None)
-    kecamatan    = db.ObjectIdField(default=None)
-    pekerjaaan = db.StringField(default="")
-    instansi = db.StringField(default="")
-    hobi = db.StringField(default="")
-    poin = db.IntField(default=0)
-    sedekah = db.BooleanField(default=False)
+    no_hp = db.StringField()
+    no_coupon = db.IntField()
 
-    created    = db.DateTimeField(default=datetime.strptime("1945-08-17", "%Y-%m-%d"))
-    modified   = db.DateTimeField(default=datetime.strptime("1945-08-17", "%Y-%m-%d"))
+    created = db.DateTimeField(default=datetime.strptime("1945-08-17", "%Y-%m-%d"))
+    modified = db.DateTimeField(default=datetime.strptime("1945-08-17", "%Y-%m-%d"))
 
-class Provinces(db.Document):
-    name = db.StringField()
-    code = db.IntField()
+    def gen_no_coupon(self):
+        _last_user = (
+            User.objects()
+            .order_by("-id")
+            .only("no_coupon")
+            .first()
+        )
+        if not _last_user:
+            no_coupon = 1000
+        else:
+            no_coupon = _last_user.no_coupon + 1
 
-class Regencies(db.Document):
-    province = db.ObjectIdField()
-    name = db.StringField()
-    code = db.IntField()
-
-class Districts(db.Document):
-    regency = db.ObjectIdField()
-    name = db.StringField()
-    code = db.IntField()
+        return no_coupon

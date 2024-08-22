@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Terasdakwah - Pendaftaran</title>
+  <title>Wang Sinawang - Pendaftaran</title>
 
   <!-- Custom fonts for this template-->
   <link href="{{ url_for('static', filename='vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
@@ -35,9 +35,6 @@
           style="width: 100%;border-radius: calc(0.75rem - 1px) calc(0.75rem - 1px) 0 0;" />
         <br />
         <h4 style="padding: 0.75rem 1.25rem; margin-bottom: 0px;">Form Pendaftaran</h4>
-        <p style="padding: 0.75rem 1.25rem;">
-        Sini sini jadi baik bareng dengan ngaji di Teras Dakwah. 
-        Jangan lupa daftar dulu ya! 1 kali daftar untuk setahun.</p>
       </div>
       <div class="card-body">
         <form method="POST">
@@ -78,28 +75,6 @@
             <div class="form-row">
               <div class="col-md-12">
                 <div class="form-label-group">
-                  {{ form.no_hp(id="no_hp", class="form-control", type="text", placeholder="Nomor Hp", required="true") }}
-                  <label for="no_hp">Nomor Hp (WA)</label>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <div class="form-row">
-              <div class="col-md-12">
-                <div class="form-label-group">
-                  <input id="tanggallahir" name="tanggallahir" class="form-control datepicker" type="text" placeholder="Tanggal lahir" data-date-format="dd/mm/yyyy">
-                  <label for="tanggallahir">Tanggal lahir</label>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <div class="form-row">
-              <div class="col-md-12">
-                <div class="form-label-group">
                   <select name="gender" id="gender" required class="form-control" style="height: 50px;">
                     <option value="">Jenis kelamin</option>
                     {% if form.gender %}
@@ -112,106 +87,22 @@
               </div>
             </div>
           </div>
-  
-          <div class="form-group">
-            <div class="form-row">
-              <div class="col-md-12">
-                <div class="form-label-group">
-                  <select name="provinsi" id="provinsi" required class="form-control" style="height: 50px;" onchange="getdatakota()">
-                      <option value="">Provinsi Domisili</option>
-                      {% if form.provinsi %}
-                      {% for provinsi in form.provinsi %}
-                          {{ provinsi }}
-                      {% endfor %}
-                      {% endif %}
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div>
 
           <div class="form-group">
             <div class="form-row">
               <div class="col-md-12">
                 <div class="form-label-group">
-                  <select name="kabupaten" id="kabupaten" required class="form-control" style="height: 50px;" onchange="getdatakec()">
-                    <option value="">Kabupaten/Kota Domisili</option>
-                    {% if form.kabupaten %}
-                    {% for kabupaten in form.kabupaten %}
-                        {{ kabupaten }}
-                    {% endfor %}
-                    {% endif %}
-                  </select>
+                  {{ form.no_hp(id="no_hp", class="form-control", type="text", placeholder="Nomor Hp", required="true") }}
+                  <label for="no_hp">Nomor WhatsApp Aktif</label>
                 </div>
               </div>
             </div>
           </div>
-
-          <div class="form-group">
-            <div class="form-row">
-              <div class="col-md-12">
-                <div class="form-label-group">
-                  <select name="kecamatan" id="kecamatan" required class="form-control" style="height: 50px;">
-                    <option value="">Kecamatan Domisili</option>
-                    {% if form.kecamatan %}
-                    {% for kecamatan in form.kecamatan %}
-                        {{ kecamatan }}
-                    {% endfor %}
-                    {% endif %}
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <div class="form-row">
-              <div class="col-md-12">
-                <div class="form-label-group">
-                  <select name="pekerjaaan" id="pekerjaaan" required class="form-control" style="height: 50px;">
-                    <option value="">Pekerjaan</option>
-                    <option value="PELAJAR">PELAJAR</option>
-                    <option value="MAHASISWA">MAHASISWA</option>
-                    <option value="KARYAWAN">KARYAWAN</option>
-                    <option value="KERJA SWASTA">KERJA SWASTA</option>
-                    <option value="IBU RUMAH TANGGA">IBU RUMAH TANGGA</option>
-                    <option value="WIRAUSAHA">WIRAUSAHA</option>
-                    <option value="PNS">PNS</option>
-                    <option value="FREELANCER">FREELANCER</option>
-                    <option value="BELUM/TIDAK BEKERJA">BELUM/TIDAK BEKERJA</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <div class="form-row">
-              <div class="col-md-12">
-                <div class="form-label-group">
-                  {{ form.instansi(id="instansi", class="form-control", type="text", placeholder="Instansi / Organisasi", required="true") }}
-                  <label for="instansi">Instansi / Organisasi</label>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <div class="form-row">
-              <div class="col-md-12">
-                <div class="form-label-group">
-                  {{ form.hobi(id="hobi", class="form-control", type="text", placeholder="Hobi", required="true") }}
-                  <label for="hobi">Hobi</label>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <button type="submit" class="btn btn-primary btn-block">Daftar</button>
+          <button type="submit" class="btn btn-success btn-block">Daftar</button>
         </form>
         <br />
         <div class="text-center">
-          <p class="d-block small mt-3">© Terasdakwah 2024</p>
+          <p class="d-block small mt-3">© wangsinawang.official</p>
         </div>
       </div>
     </div>
@@ -227,43 +118,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.id.min.js" integrity="sha512-zHDWtKP91CHnvBDpPpfLo9UsuMa02/WgXDYcnFp5DFs8lQvhCe2tx56h2l7SqKs/+yQCx4W++hZ/ABg8t3KH/Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-  <script>
-    $(document).ready(function () {
-      $('.datepicker').datepicker({
-          language: "id",
-          autoclose: true,
-          defaultViewDate: { year: 1997, month: 08, day: 17 }
-      });
-    });
-
-    function getdatakota() {
-      $(document).ready(function () {
-        $.getJSON('get_kab/'+$('#provinsi').val(), function(data) {
-          $('#kabupaten').empty();
-          $.each(data, function(index, element) {
-            $('#kabupaten').append($('<option>', { 
-                value: element.id,
-                text : element.name 
-            }));
-          });
-        });
-      });
-    }
-
-    function getdatakec() {
-      $(document).ready(function () {
-        $.getJSON('get_kec/'+$('#kabupaten').val(), function(data) {
-          $('#kecamatan').empty();
-          $.each(data, function(index, element) {
-            $('#kecamatan').append($('<option>', { 
-                value: element.id,
-                text : element.name 
-            }));
-          });
-        });
-      });
-    }
-  </script>
 </body>
 
 </html>
